@@ -15,11 +15,17 @@
         border-radius: 24px;
       "
     >
-      <h1>O número sorteado aparecerá aqui!</h1>
-      <button>Sortear</button>
+      <h1 id="elemento">O número sorteado aparecerá aqui!</h1>
+      <button onclick="sortear()">Sortear</button>
     </div>
   </body>
   <script>
-    // Código javascript ficará aqui
+    const elemento = document.getElementById("elemento");
+
+    const numeroSorteado = Math.floor(Math.random() * 10 + 1);
+
+    function sortear() {
+      elemento.innerHTML = "O número sorteado é: " + numeroSorteado;
+    }
   </script>
 </html>
