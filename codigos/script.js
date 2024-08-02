@@ -1,11 +1,13 @@
-const botao = document.querySelector("button");
+const formulario = document.querySelector("#formulario");
 const resultadoTexto = document.querySelector("#resultadoTexto");
 
 function calculoImc(altura, peso) {
   return peso / (altura * altura);
 }
 
-botao.onclick = () => {
+formulario.onsubmit = (event) => {
+  event.preventDefault(); // Impede o comportamento padrão de envio do formulário
+
   const altura = parseFloat(document.querySelector("#altura").value);
   const peso = parseFloat(document.querySelector("#peso").value);
 
