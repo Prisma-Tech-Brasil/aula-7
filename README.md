@@ -1,51 +1,145 @@
-# Bem-vindo à Turma de Programação!
 
-Olá, futuros mestres do código!
+# Funções em JavaScript
 
-Este repositório é o seu ponto de partida para dominar as artes obscuras do HTML, CSS, Javascript e afins. Aqui, você encontrará todos os arquivos necessários para acompanhar as aulas e praticar o que aprendemos.
-
-## Passo a Passo para Fazer o Fork
-
-Vamos colocar as mãos na massa! Siga os passos abaixo para fazer o fork deste repositório e ter uma cópia só sua:
-
-1. **Faça login no GitHub**: Caso ainda não tenha uma conta, crie uma [aqui](https://github.com/).
-2. **Acesse o repositório original**: Vá para o repositório do curso clicando [aqui](https://github.com/Prisma-Tech-Brasil/aula-11).
-3. **Fork it!**: No canto superior direito da página do repositório, clique no botão "Fork". Isso criará uma cópia do repositório no seu perfil do GitHub.
-4. **Clone o seu repositório**: Agora, no seu perfil, você verá o repositório que acabou de forkar. Clique nele e copie o link HTTPS ou SSH. No seu terminal, digite:
-
-   ```bash
-   git clone https://github.com/seu-usuario/repo-exemplo.git
-   ```
-
-   ou, se estiver usando SSH:
-
-   ```bash
-   git clone git@github.com:seu-usuario/repo-exemplo.git
-   ```
-
-5. **Explore e codifique**: Pronto! Agora você tem todos os arquivos no seu computador e pode começar a explorar e editar à vontade.
-
-## Materiais de Aula
-
-Dentro deste repositório, você encontrará um arquivo PDF com o conteúdo da aula. Este arquivo é fundamental para acompanhar as explicações e revisitar os conceitos ensinados. O arquivo está localizado na pasta `materiais`.
-
-## Praticando e Revisando
-
-Lembre-se, a prática leva à perfeição! Não se esqueça de:
-
-- **Exercitar**: Explore os exercícios propostos e tente criar suas próprias soluções. Quanto mais você praticar, melhor será sua compreensão.
-- **Revisar**: Leia e releia o material fornecido. A revisão é uma excelente maneira de fixar o conteúdo e descobrir novos detalhes que podem ter passado despercebidos na primeira leitura.
-
-## Dúvidas?
-
-Caso tenha qualquer dúvida, não hesite em perguntar! Use os canais de comunicação da turma, como o discord, para interagir com seus colegas e instrutor.
-
-Bom código e boas práticas!
+Funções são blocos de código que realizam uma tarefa específica e podem ser reutilizados ao longo do programa. Elas ajudam a organizar, reutilizar e manter o código mais limpo.
 
 ---
 
-"Programar é uma arte. Cada linha de código é uma pincelada na tela da sua mente." - Iron Man, talvez.
+## O que é uma função?
 
-Vamos juntos nessa jornada!
+- Uma função é um conjunto de instruções agrupadas.
+- Pode receber entradas (parâmetros).
+- Pode retornar um valor.
+- É executada quando "chamada".
 
-**Seu Instrutor Favorito**
+---
+
+## Como declarar uma função?
+
+### 1. Função declarada (Function Declaration)
+
+```js
+function saudacao(nome) {
+  return `Olá, ${nome}!`;
+}
+```
+
+- Nomeada.
+- Pode ser chamada antes de ser declarada (hoisting).
+
+### 2. Função anônima atribuída a uma variável (Function Expression)
+
+```js
+const soma = function(a, b) {
+  return a + b;
+};
+```
+
+- Atribuída a uma variável.
+- Não sofre hoisting.
+
+### 3. Arrow Function (função de seta)
+
+```js
+const multiplicar = (a, b) => a * b;
+```
+
+- Sintaxe mais curta.
+- Não possui seu próprio `this`.
+- Útil para funções pequenas e callbacks.
+
+---
+
+## Como chamar uma função?
+
+```js
+console.log(saudacao('Tuai'));  // Olá, Tuai!
+console.log(soma(2, 3));        // 5
+console.log(multiplicar(4, 5)); // 20
+```
+
+---
+
+## Parâmetros e argumentos
+
+- Parâmetros são os nomes que definimos na função.
+- Argumentos são os valores passados na chamada da função.
+
+```js
+function apresentar(nome, idade) {
+  return `Meu nome é ${nome} e tenho ${idade} anos.`;
+}
+
+apresentar('Tuai', 30);
+```
+
+---
+
+## Valores padrão para parâmetros
+
+```js
+function saudacao(nome = 'Visitante') {
+  return `Olá, ${nome}!`;
+}
+
+saudacao(); // Olá, Visitante!
+```
+
+---
+
+## Função que não retorna nada (void)
+
+```js
+function dizerOi() {
+  console.log('Oi!');
+}
+
+dizerOi(); // Oi!
+```
+
+---
+
+## Por que usar funções?
+
+- Evita repetição de código.
+- Facilita a manutenção.
+- Deixa o código mais organizado.
+- Permite reutilização e modularização.
+
+---
+
+## Funções Matemáticas com `Math`
+
+O objeto global `Math` oferece várias funções para operações matemáticas comuns. Ele não é uma função, mas um objeto com métodos estáticos.
+
+### Exemplos úteis:
+
+```js
+Math.round(4.7);    // 5    -> arredonda para o inteiro mais próximo
+Math.floor(4.7);    // 4    -> arredonda para baixo
+Math.ceil(4.2);     // 5    -> arredonda para cima
+Math.abs(-10);      // 10   -> valor absoluto (sem sinal)
+Math.sqrt(16);      // 4    -> raiz quadrada
+Math.pow(2, 3);     // 8    -> potência (2 elevado a 3)
+Math.min(5, 10, 2); // 2    -> menor valor
+Math.max(5, 10, 2); // 10   -> maior valor
+Math.random();      // 0.0 a 0.9999... número aleatório entre 0 e 1
+```
+
+### Como gerar um número aleatório entre dois valores?
+
+```js
+function randomEntre(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+randomEntre(1, 10); // retorna número inteiro entre 1 e 10 (inclusive)
+```
+
+---
+
+## Onde aprender mais?
+
+- [MDN - Functions](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Functions)
+- [JavaScript.info - Functions](https://javascript.info/function-basics)
+- Livro: *You Don’t Know JS* (Kyle Simpson) — capítulo sobre funções
