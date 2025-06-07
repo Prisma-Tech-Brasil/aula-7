@@ -39,7 +39,6 @@ function quadrado(num) {
   return num ** 2
 }
 
-
 console.log(Math.cbrt(125));
 
 Math.sqrt(9)
